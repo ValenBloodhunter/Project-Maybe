@@ -1,10 +1,10 @@
 // =========================
 // PROJECT MAYBE
-// PHASE 8
+// PERSONALIZED BUILD
 // =========================
 
 console.log(
-    "Project Maybe v0.8 initialized."
+    "Project Maybe v0.9 initialized."
 );
 
 
@@ -174,7 +174,7 @@ const causeFound =
 
 
 // =========================
-// PHASE 7
+// FINAL REVEAL
 // =========================
 
 const revealOkay =
@@ -201,11 +201,6 @@ const revealEnding =
     document.getElementById(
         "revealEnding"
     );
-
-
-// =========================
-// PHASE 8
-// =========================
 
 const achievementCard =
     document.getElementById(
@@ -234,7 +229,7 @@ const heartContainer =
 
 
 // =========================
-// DATA
+// SYSTEM SCAN
 // =========================
 
 const scanLines = [
@@ -247,10 +242,18 @@ const scanLines = [
 
     "scanning user...",
 
+    "detecting aesthetic tendencies...",
+
+    "measuring suspiciously cute habits...",
+
     "calculating completely objective statistics..."
 
 ];
 
+
+// =========================
+// FAKE GIT HISTORY
+// =========================
 
 const commits = [
 
@@ -258,7 +261,7 @@ const commits = [
         number: "001",
         type: "feat:",
         message:
-            "started a random project",
+            "started a completely normal project",
         personal: false
     },
 
@@ -266,7 +269,7 @@ const commits = [
         number: "002",
         type: "fix:",
         message:
-            "immediately broke the random project",
+            "immediately broke the completely normal project",
         personal: false
     },
 
@@ -282,7 +285,7 @@ const commits = [
         number: "004",
         type: "feat:",
         message:
-            "added one specific person",
+            "added one suspiciously specific person",
         personal: true
     },
 
@@ -290,20 +293,32 @@ const commits = [
         number: "005",
         type: "bug:",
         message:
-            "that person is unusually distracting",
+            "person keeps becoming more important than expected",
         personal: true
     },
 
     {
         number: "006",
+        type: "bug:",
+        message:
+            "physical contact causes unexpected happiness",
+        personal: true
+    },
+
+    {
+        number: "007",
         type: "fix:",
         message:
-            "no fix found",
+            "no fix found. apparently this is intentional.",
         personal: true
     }
 
 ];
 
+
+// =========================
+// DATABASE SEARCH
+// =========================
 
 const databaseLines = [
 
@@ -330,28 +345,42 @@ const databaseLines = [
 
     {
         text:
-            "interesting",
+            "trying to make everything aesthetic",
         type:
             "filter"
     },
 
     {
         text:
-            "funny",
+            "uses tiny thumbs-up confirmation protocol",
         type:
             "filter"
     },
 
     {
         text:
-            "annoyingly memorable",
+            "certified Aatal",
         type:
             "filter"
     },
 
     {
         text:
-            "makes my day better",
+            "occasionally gets suspiciously annoyed about other girls",
+        type:
+            "filter"
+    },
+
+    {
+        text:
+            "somehow ridiculously easy to talk to",
+        type:
+            "filter"
+    },
+
+    {
+        text:
+            "makes ordinary moments memorable",
         type:
             "filter"
     },
@@ -410,7 +439,7 @@ function changeScreen(
 
 
 // =========================
-// PHASE 2
+// TERMINAL TYPING
 // =========================
 
 async function typeLine(text) {
@@ -462,6 +491,10 @@ async function typeLine(text) {
 }
 
 
+// =========================
+// SYSTEM SCAN
+// =========================
+
 async function startScan() {
 
     terminalOutput.innerHTML = "";
@@ -486,7 +519,7 @@ async function startScan() {
             line
         );
 
-        await wait(500);
+        await wait(450);
 
     }
 
@@ -499,7 +532,7 @@ async function startScan() {
     );
 
 
-    await wait(650);
+    await wait(750);
 
 
     continueButton.classList.remove(
@@ -510,7 +543,7 @@ async function startScan() {
 
 
 // =========================
-// PHASE 3
+// GIT HISTORY
 // =========================
 
 async function startGitHistory() {
@@ -573,7 +606,7 @@ async function startGitHistory() {
         );
 
 
-        await wait(700);
+        await wait(680);
 
     }
 
@@ -589,7 +622,7 @@ async function startGitHistory() {
 
 
 // =========================
-// PHASE 4
+// DATABASE
 // =========================
 
 function createDatabaseLine(
@@ -705,7 +738,7 @@ async function startDatabaseSearch() {
             item.type === "filter"
         ) {
 
-            await wait(650);
+            await wait(600);
 
         }
 
@@ -718,7 +751,7 @@ async function startDatabaseSearch() {
     }
 
 
-    await wait(1300);
+    await wait(1400);
 
 
     personResult.classList.remove(
@@ -726,7 +759,7 @@ async function startDatabaseSearch() {
     );
 
 
-    await wait(1400);
+    await wait(1600);
 
 
     databaseContinueButton.classList.remove(
@@ -737,7 +770,7 @@ async function startDatabaseSearch() {
 
 
 // =========================
-// PHASE 5
+// EVIDENCE
 // =========================
 
 async function startEvidence() {
@@ -773,12 +806,12 @@ async function startEvidence() {
             "visible"
         );
 
-        await wait(850);
+        await wait(1000);
 
     }
 
 
-    await wait(700);
+    await wait(800);
 
 
     evidenceConclusion.classList.remove(
@@ -786,7 +819,7 @@ async function startEvidence() {
     );
 
 
-    await wait(1000);
+    await wait(1100);
 
 
     evidenceContinueButton.classList.remove(
@@ -797,7 +830,7 @@ async function startEvidence() {
 
 
 // =========================
-// PHASE 6
+// ERROR SEQUENCE
 // =========================
 
 async function startErrorSequence() {
@@ -851,7 +884,7 @@ async function startErrorSequence() {
     );
 
 
-    await wait(1600);
+    await wait(1700);
 
 
     diagnosticText.classList.remove(
@@ -859,7 +892,7 @@ async function startErrorSequence() {
     );
 
 
-    await wait(1700);
+    await wait(1800);
 
 
     causeFound.classList.remove(
@@ -867,7 +900,7 @@ async function startErrorSequence() {
     );
 
 
-    await wait(1100);
+    await wait(1200);
 
 
     showCauseButton.classList.remove(
@@ -878,7 +911,7 @@ async function startErrorSequence() {
 
 
 // =========================
-// HEART EFFECT
+// HEARTS
 // =========================
 
 function createHeart(
@@ -948,7 +981,7 @@ function startRevealHearts() {
 
 
             if (
-                heartsCreated >= 14
+                heartsCreated >= 12
             ) {
 
                 clearInterval(
@@ -957,13 +990,13 @@ function startRevealHearts() {
 
             }
 
-        }, 220);
+        }, 240);
 
 }
 
 
 // =========================
-// PHASE 7 + 8
+// FINAL REVEAL
 // =========================
 
 async function startReveal() {
@@ -1005,7 +1038,7 @@ async function startReveal() {
     );
 
 
-    await wait(1600);
+    await wait(1700);
 
 
     revealIntro.classList.remove(
@@ -1013,7 +1046,7 @@ async function startReveal() {
     );
 
 
-    await wait(2600);
+    await wait(2900);
 
 
     confessionBlock.classList.remove(
@@ -1021,15 +1054,10 @@ async function startReveal() {
     );
 
 
-    /*
-        Hearts only begin after
-        "I really like you."
-    */
-
     startRevealHearts();
 
 
-    await wait(2600);
+    await wait(3000);
 
 
     revealMessage.classList.remove(
@@ -1037,7 +1065,7 @@ async function startReveal() {
     );
 
 
-    await wait(3300);
+    await wait(5200);
 
 
     revealEnding.classList.remove(
@@ -1045,12 +1073,7 @@ async function startReveal() {
     );
 
 
-    /*
-        Give the emotional ending
-        a moment before adding the joke.
-    */
-
-    await wait(3000);
+    await wait(3400);
 
 
     achievementCard.classList.remove(
@@ -1058,7 +1081,7 @@ async function startReveal() {
     );
 
 
-    await wait(1000);
+    await wait(1100);
 
 
     revealFinalMarker.classList.remove(
@@ -1085,20 +1108,11 @@ happinessButton.addEventListener(
             happiness;
 
 
-        /*
-            Heart starts somewhere near
-            the center of the screen.
-        */
-
         createHeart(
             40 +
             Math.random() * 20
         );
 
-
-        /*
-            Small button press animation.
-        */
 
         happinessButton.classList.remove(
             "pop"
@@ -1113,16 +1127,12 @@ happinessButton.addEventListener(
         );
 
 
-        /*
-            Tiny messages at milestones.
-        */
-
         if (
             happiness === 5
         ) {
 
             happinessMessage.textContent =
-                "okay, the experiment is working";
+                "okay Shree, the experiment is working";
 
         }
 
@@ -1131,7 +1141,7 @@ happinessButton.addEventListener(
         ) {
 
             happinessMessage.textContent =
-                "this number is becoming statistically significant";
+                "this is becoming statistically significant";
 
         }
 
@@ -1140,7 +1150,7 @@ happinessButton.addEventListener(
         ) {
 
             happinessMessage.textContent =
-                "you know you can stop clicking, right?";
+                "big Aatal behaviour honestly";
 
         }
 
@@ -1149,7 +1159,7 @@ happinessButton.addEventListener(
         ) {
 
             happinessMessage.textContent =
-                "actually never mind. continue.";
+                "okay fine, keep going";
 
         }
 
@@ -1158,7 +1168,7 @@ happinessButton.addEventListener(
         ) {
 
             happinessMessage.textContent =
-                "achievement unlocked: aggressively happy";
+                "achievement unlocked: maximum Shree";
 
         }
 
@@ -1304,7 +1314,7 @@ evidenceContinueButton.addEventListener(
 );
 
 
-// Phase 6 → Final Reveal
+// Phase 6 → Reveal
 
 showCauseButton.addEventListener(
     "click",
