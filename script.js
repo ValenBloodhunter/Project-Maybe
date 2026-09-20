@@ -1,10 +1,10 @@
 // =========================
 // PROJECT MAYBE
-// PHASE 5
+// PHASE 6
 // =========================
 
 console.log(
-    "Project Maybe v0.5 initialized."
+    "Project Maybe v0.6 initialized."
 );
 
 
@@ -37,6 +37,11 @@ const evidenceContinueButton =
         "evidenceContinueButton"
     );
 
+const showCauseButton =
+    document.getElementById(
+        "showCauseButton"
+    );
+
 
 const landingScreen =
     document.getElementById(
@@ -63,9 +68,14 @@ const evidenceScreen =
         "evidenceScreen"
     );
 
-const nextScreen =
+const errorScreen =
     document.getElementById(
-        "nextScreen"
+        "errorScreen"
+    );
+
+const revealPlaceholder =
+    document.getElementById(
+        "revealPlaceholder"
     );
 
 
@@ -106,9 +116,34 @@ const evidenceConclusion =
     );
 
 
+const errorTitle =
+    document.getElementById(
+        "errorTitle"
+    );
+
+const unableText =
+    document.getElementById(
+        "unableText"
+    );
+
+const reasonBlock =
+    document.getElementById(
+        "reasonBlock"
+    );
+
+const diagnosticText =
+    document.getElementById(
+        "diagnosticText"
+    );
+
+const causeFound =
+    document.getElementById(
+        "causeFound"
+    );
+
+
 // =========================
 // PHASE 2
-// SYSTEM SCAN
 // =========================
 
 const scanLines = [
@@ -122,7 +157,6 @@ const scanLines = [
 
 // =========================
 // PHASE 3
-// GIT COMMITS
 // =========================
 
 const commits = [
@@ -180,7 +214,6 @@ const commits = [
 
 // =========================
 // PHASE 4
-// DATABASE
 // =========================
 
 const databaseLines = [
@@ -245,7 +278,7 @@ const databaseLines = [
 
 
 // =========================
-// WAIT HELPER
+// WAIT
 // =========================
 
 function wait(milliseconds) {
@@ -262,7 +295,7 @@ function wait(milliseconds) {
 
 
 // =========================
-// SCREEN TRANSITION
+// CHANGE SCREEN
 // =========================
 
 function changeScreen(
@@ -346,7 +379,6 @@ async function typeLine(text) {
 
 // =========================
 // PHASE 2
-// START SCAN
 // =========================
 
 async function startScan() {
@@ -398,7 +430,6 @@ async function startScan() {
 
 // =========================
 // PHASE 3
-// START GIT HISTORY
 // =========================
 
 async function startGitHistory() {
@@ -428,9 +459,7 @@ async function startGitHistory() {
         );
 
 
-        if (
-            commit.personal
-        ) {
+        if (commit.personal) {
 
             commitElement.classList.add(
                 "personal"
@@ -496,9 +525,7 @@ function createDatabaseLine(
     );
 
 
-    if (
-        type === "filter"
-    ) {
+    if (type === "filter") {
 
         line.classList.add(
             "filter"
@@ -544,9 +571,7 @@ function createDatabaseLine(
     }
 
 
-    if (
-        type === "result"
-    ) {
+    if (type === "result") {
 
         line.classList.add(
             "result-line"
@@ -564,7 +589,6 @@ function createDatabaseLine(
 
 // =========================
 // PHASE 4
-// START DATABASE SEARCH
 // =========================
 
 async function startDatabaseSearch() {
@@ -630,15 +654,9 @@ async function startDatabaseSearch() {
 
 // =========================
 // PHASE 5
-// START EVIDENCE
 // =========================
 
 async function startEvidence() {
-
-    /*
-        Reset cards in case this
-        function ever runs again.
-    */
 
     evidenceCards.forEach(
         card => {
@@ -662,10 +680,6 @@ async function startEvidence() {
 
     await wait(700);
 
-
-    /*
-        Reveal evidence one at a time.
-    */
 
     for (
         const card of evidenceCards
@@ -699,7 +713,89 @@ async function startEvidence() {
 
 
 // =========================
-// PHASE 1 → PHASE 2
+// PHASE 6
+// ERROR SEQUENCE
+// =========================
+
+async function startErrorSequence() {
+
+    errorTitle.classList.add(
+        "hidden"
+    );
+
+    unableText.classList.add(
+        "hidden"
+    );
+
+    reasonBlock.classList.add(
+        "hidden"
+    );
+
+    diagnosticText.classList.add(
+        "hidden"
+    );
+
+    causeFound.classList.add(
+        "hidden"
+    );
+
+    showCauseButton.classList.add(
+        "hidden"
+    );
+
+
+    await wait(800);
+
+
+    errorTitle.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(900);
+
+
+    unableText.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(900);
+
+
+    reasonBlock.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(1600);
+
+
+    diagnosticText.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(1700);
+
+
+    causeFound.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(1100);
+
+
+    showCauseButton.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+// =========================
+// PHASE 1 → 2
 // =========================
 
 runButton.addEventListener(
@@ -708,7 +804,6 @@ runButton.addEventListener(
 
         runButton.disabled =
             true;
-
 
         runButton.innerHTML =
             "&gt; Running...";
@@ -731,7 +826,7 @@ runButton.addEventListener(
 
 
 // =========================
-// PHASE 2 → PHASE 3
+// PHASE 2 → 3
 // =========================
 
 continueButton.addEventListener(
@@ -759,7 +854,7 @@ continueButton.addEventListener(
 
 
 // =========================
-// PHASE 3 → PHASE 4
+// PHASE 3 → 4
 // =========================
 
 gitNextButton.addEventListener(
@@ -787,7 +882,7 @@ gitNextButton.addEventListener(
 
 
 // =========================
-// PHASE 4 → PHASE 5
+// PHASE 4 → 5
 // =========================
 
 databaseContinueButton.addEventListener(
@@ -815,7 +910,7 @@ databaseContinueButton.addEventListener(
 
 
 // =========================
-// PHASE 5 → PHASE 6
+// PHASE 5 → 6
 // =========================
 
 evidenceContinueButton.addEventListener(
@@ -828,7 +923,35 @@ evidenceContinueButton.addEventListener(
 
         changeScreen(
             evidenceScreen,
-            nextScreen
+            errorScreen
+        );
+
+
+        setTimeout(() => {
+
+            startErrorSequence();
+
+        }, 500);
+
+    }
+);
+
+
+// =========================
+// PHASE 6 → 7
+// =========================
+
+showCauseButton.addEventListener(
+    "click",
+    () => {
+
+        showCauseButton.disabled =
+            true;
+
+
+        changeScreen(
+            errorScreen,
+            revealPlaceholder
         );
 
     }

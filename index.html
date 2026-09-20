@@ -22,10 +22,7 @@
              LANDING
         ========================== -->
 
-        <section
-            class="screen active"
-            id="landingScreen"
-        >
+        <section class="screen active" id="landingScreen">
 
             <div class="window">
 
@@ -70,7 +67,7 @@
             </div>
 
             <p class="build-text">
-                build v0.5.0
+                build v0.6.0
             </p>
 
         </section>
@@ -81,10 +78,7 @@
              SYSTEM SCAN
         ========================== -->
 
-        <section
-            class="screen"
-            id="scanScreen"
-        >
+        <section class="screen" id="scanScreen">
 
             <div class="terminal-window">
 
@@ -107,7 +101,6 @@
                         C:\projects\maybe&gt; run
                     </p>
 
-
                     <div
                         id="terminalOutput"
                         class="terminal-output"
@@ -123,18 +116,15 @@
                             STATUS REPORT
                         </p>
 
-
                         <div class="stat">
                             <span>Humor detected</span>
                             <strong>94%</strong>
                         </div>
 
-
                         <div class="stat">
                             <span>Chaos level</span>
                             <strong>suspicious</strong>
                         </div>
-
 
                         <div class="stat">
                             <span>Main character energy</span>
@@ -163,10 +153,7 @@
              GIT HISTORY
         ========================== -->
 
-        <section
-            class="screen"
-            id="gitScreen"
-        >
+        <section class="screen" id="gitScreen">
 
             <div class="git-window">
 
@@ -190,12 +177,10 @@
                         git log --oneline
                     </p>
 
-
                     <div
                         id="commitList"
                         class="commit-list"
                     ></div>
-
 
                     <button
                         id="gitNextButton"
@@ -213,13 +198,10 @@
 
         <!-- =========================
              PHASE 4
-             DATABASE SEARCH
+             DATABASE
         ========================== -->
 
-        <section
-            class="screen"
-            id="databaseScreen"
-        >
+        <section class="screen" id="databaseScreen">
 
             <div class="database-window">
 
@@ -243,7 +225,6 @@
                         search --target=unknown
                     </p>
 
-
                     <div
                         id="databaseOutput"
                         class="database-output"
@@ -259,9 +240,7 @@
                             MATCH FOUND
                         </p>
 
-                        <!--
-                            PERSONALIZE LATER
-                        -->
+                        <!-- PERSONALIZE LATER -->
                         <h2>
                             [THEIR NAME]
                         </h2>
@@ -307,16 +286,13 @@
                         inspect --reason
                     </p>
 
-
                     <p class="evidence-label">
                         ANALYSIS
                     </p>
 
-
                     <h2>
                         Evidence
                     </h2>
-
 
                     <p class="evidence-intro">
                         Apparently the system has
@@ -330,12 +306,6 @@
                     id="evidenceList"
                     class="evidence-list"
                 >
-
-                    <!-- =====================
-                         PERSONALIZE THIS
-                         Replace this with a
-                         real detail later.
-                    ====================== -->
 
                     <article class="evidence-card">
 
@@ -352,10 +322,6 @@
                     </article>
 
 
-                    <!-- =====================
-                         PERSONALIZE THIS
-                    ====================== -->
-
                     <article class="evidence-card">
 
                         <p class="evidence-number">
@@ -369,10 +335,6 @@
 
                     </article>
 
-
-                    <!-- =====================
-                         PERSONALIZE THIS
-                    ====================== -->
 
                     <article class="evidence-card">
 
@@ -391,25 +353,6 @@
                 </div>
 
 
-                <!--
-                ================================
-                OPTIONAL PHOTO FOR LATER
-
-                When we personalize the website,
-                we can add something like:
-
-                <div class="memory-photo">
-                    <img
-                        src="assets/photos/photo1.jpg"
-                        alt="A memory"
-                    >
-                </div>
-
-                Do not add the image yet.
-                ================================
-                -->
-
-
                 <div class="evidence-footer">
 
                     <p
@@ -420,7 +363,6 @@
                         this is becoming difficult
                         to classify as coincidence.
                     </p>
-
 
                     <button
                         id="evidenceContinueButton"
@@ -437,12 +379,115 @@
 
 
         <!-- =========================
-             TEMPORARY PHASE 6
+             PHASE 6
+             FAKE ERROR
+        ========================== -->
+
+        <section
+            class="screen error-screen"
+            id="errorScreen"
+        >
+
+            <div class="error-window">
+
+                <div class="window-header error-header">
+
+                    <div class="window-controls">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <p>diagnostic.exe</p>
+
+                </div>
+
+
+                <div class="error-body">
+
+                    <p class="terminal-path error-path">
+                        C:\projects\maybe&gt;
+                        continue
+                    </p>
+
+
+                    <div
+                        id="errorContent"
+                        class="error-content"
+                    >
+
+                        <p
+                            id="errorTitle"
+                            class="error-title hidden"
+                        >
+                            ERROR
+                        </p>
+
+
+                        <p
+                            id="unableText"
+                            class="error-line hidden"
+                        >
+                            Unable to continue.
+                        </p>
+
+
+                        <div
+                            id="reasonBlock"
+                            class="reason-block hidden"
+                        >
+
+                            <p class="reason-label">
+                                Reason:
+                            </p>
+
+                            <p class="reason-text">
+                                User-specific variable
+                                exceeded expected importance.
+                            </p>
+
+                        </div>
+
+
+                        <p
+                            id="diagnosticText"
+                            class="diagnostic-text hidden"
+                        >
+                            &gt; Attempting diagnostic...
+                        </p>
+
+
+                        <p
+                            id="causeFound"
+                            class="cause-found hidden"
+                        >
+                            &gt; Cause found.
+                        </p>
+
+
+                        <button
+                            id="showCauseButton"
+                            class="show-cause-button hidden"
+                        >
+                            Show cause
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TEMPORARY PHASE 7
         ========================== -->
 
         <section
             class="screen"
-            id="nextScreen"
+            id="revealPlaceholder"
         >
 
             <div class="placeholder">
@@ -452,15 +497,11 @@
                 </p>
 
                 <h2>
-                    Processing...
+                    Cause loading...
                 </h2>
 
                 <p>
-                    Something appears to have gone wrong.
-                </p>
-
-                <p class="phase-placeholder">
-                    Phase 6 goes here.
+                    Phase 7 goes here.
                 </p>
 
             </div>
@@ -468,7 +509,6 @@
         </section>
 
     </main>
-
 
     <script src="script.js"></script>
 
