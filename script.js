@@ -1,10 +1,10 @@
 // =========================
 // PROJECT MAYBE
-// PHASE 7
+// PHASE 8
 // =========================
 
 console.log(
-    "Project Maybe v0.7 initialized."
+    "Project Maybe v0.8 initialized."
 );
 
 
@@ -42,8 +42,15 @@ const showCauseButton =
         "showCauseButton"
     );
 
+const happinessButton =
+    document.getElementById(
+        "happinessButton"
+    );
 
-// Screens
+
+// =========================
+// SCREENS
+// =========================
 
 const landingScreen =
     document.getElementById(
@@ -81,7 +88,9 @@ const revealScreen =
     );
 
 
-// Phase 2
+// =========================
+// PHASE 2
+// =========================
 
 const terminalOutput =
     document.getElementById(
@@ -94,7 +103,9 @@ const resultCard =
     );
 
 
-// Phase 3
+// =========================
+// PHASE 3
+// =========================
 
 const commitList =
     document.getElementById(
@@ -102,7 +113,9 @@ const commitList =
     );
 
 
-// Phase 4
+// =========================
+// PHASE 4
+// =========================
 
 const databaseOutput =
     document.getElementById(
@@ -115,7 +128,9 @@ const personResult =
     );
 
 
-// Phase 5
+// =========================
+// PHASE 5
+// =========================
 
 const evidenceCards =
     document.querySelectorAll(
@@ -128,7 +143,9 @@ const evidenceConclusion =
     );
 
 
-// Phase 6
+// =========================
+// PHASE 6
+// =========================
 
 const errorTitle =
     document.getElementById(
@@ -156,7 +173,9 @@ const causeFound =
     );
 
 
-// Phase 7
+// =========================
+// PHASE 7
+// =========================
 
 const revealOkay =
     document.getElementById(
@@ -181,6 +200,26 @@ const revealMessage =
 const revealEnding =
     document.getElementById(
         "revealEnding"
+    );
+
+
+// =========================
+// PHASE 8
+// =========================
+
+const achievementCard =
+    document.getElementById(
+        "achievementCard"
+    );
+
+const happinessCount =
+    document.getElementById(
+        "happinessCount"
+    );
+
+const happinessMessage =
+    document.getElementById(
+        "happinessMessage"
     );
 
 const revealFinalMarker =
@@ -593,7 +632,8 @@ function createDatabaseLine(
             "database-prefix"
         );
 
-        prefix.textContent = ">";
+        prefix.textContent =
+            ">";
 
 
         const content =
@@ -636,7 +676,8 @@ function createDatabaseLine(
 
 async function startDatabaseSearch() {
 
-    databaseOutput.innerHTML = "";
+    databaseOutput.innerHTML =
+        "";
 
     personResult.classList.add(
         "hidden"
@@ -840,7 +881,9 @@ async function startErrorSequence() {
 // HEART EFFECT
 // =========================
 
-function createHeart() {
+function createHeart(
+    startX = Math.random() * 100
+) {
 
     const heart =
         document.createElement(
@@ -853,16 +896,27 @@ function createHeart() {
     );
 
 
-    heart.textContent = "♥";
+    heart.textContent =
+        "♥";
 
 
     heart.style.left =
-        Math.random() * 100 + "%";
+        startX + "%";
+
+
+    heart.style.fontSize =
+        (
+            12 +
+            Math.random() * 12
+        ) +
+        "px";
 
 
     heart.style.animationDuration =
-        3 +
-        Math.random() * 2 +
+        (
+            3 +
+            Math.random() * 2
+        ) +
         "s";
 
 
@@ -875,17 +929,17 @@ function createHeart() {
 
         heart.remove();
 
-    }, 5000);
+    }, 5200);
 
 }
 
 
-function startHearts() {
+function startRevealHearts() {
 
     let heartsCreated = 0;
 
 
-    const heartInterval =
+    const interval =
         setInterval(() => {
 
             createHeart();
@@ -898,7 +952,7 @@ function startHearts() {
             ) {
 
                 clearInterval(
-                    heartInterval
+                    interval
                 );
 
             }
@@ -909,8 +963,7 @@ function startHearts() {
 
 
 // =========================
-// PHASE 7
-// FINAL REVEAL
+// PHASE 7 + 8
 // =========================
 
 async function startReveal() {
@@ -935,15 +988,14 @@ async function startReveal() {
         "hidden"
     );
 
+    achievementCard.classList.add(
+        "hidden"
+    );
+
     revealFinalMarker.classList.add(
         "hidden"
     );
 
-
-    /*
-        Small pause after clicking
-        "Show cause".
-    */
 
     await wait(900);
 
@@ -964,20 +1016,17 @@ async function startReveal() {
     await wait(2600);
 
 
-    /*
-        Main confession.
-    */
-
     confessionBlock.classList.remove(
         "hidden"
     );
 
 
     /*
-        Only now do the hearts appear.
+        Hearts only begin after
+        "I really like you."
     */
 
-    startHearts();
+    startRevealHearts();
 
 
     await wait(2600);
@@ -996,7 +1045,20 @@ async function startReveal() {
     );
 
 
-    await wait(2500);
+    /*
+        Give the emotional ending
+        a moment before adding the joke.
+    */
+
+    await wait(3000);
+
+
+    achievementCard.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(1000);
 
 
     revealFinalMarker.classList.remove(
@@ -1007,7 +1069,105 @@ async function startReveal() {
 
 
 // =========================
-// BUTTON EVENTS
+// HAPPINESS COUNTER
+// =========================
+
+let happiness = 0;
+
+
+happinessButton.addEventListener(
+    "click",
+    () => {
+
+        happiness++;
+
+        happinessCount.textContent =
+            happiness;
+
+
+        /*
+            Heart starts somewhere near
+            the center of the screen.
+        */
+
+        createHeart(
+            40 +
+            Math.random() * 20
+        );
+
+
+        /*
+            Small button press animation.
+        */
+
+        happinessButton.classList.remove(
+            "pop"
+        );
+
+
+        void happinessButton.offsetWidth;
+
+
+        happinessButton.classList.add(
+            "pop"
+        );
+
+
+        /*
+            Tiny messages at milestones.
+        */
+
+        if (
+            happiness === 5
+        ) {
+
+            happinessMessage.textContent =
+                "okay, the experiment is working";
+
+        }
+
+        else if (
+            happiness === 10
+        ) {
+
+            happinessMessage.textContent =
+                "this number is becoming statistically significant";
+
+        }
+
+        else if (
+            happiness === 20
+        ) {
+
+            happinessMessage.textContent =
+                "you know you can stop clicking, right?";
+
+        }
+
+        else if (
+            happiness === 30
+        ) {
+
+            happinessMessage.textContent =
+                "actually never mind. continue.";
+
+        }
+
+        else if (
+            happiness === 50
+        ) {
+
+            happinessMessage.textContent =
+                "achievement unlocked: aggressively happy";
+
+        }
+
+    }
+);
+
+
+// =========================
+// NAVIGATION
 // =========================
 
 
@@ -1144,7 +1304,7 @@ evidenceContinueButton.addEventListener(
 );
 
 
-// Phase 6 → Phase 7
+// Phase 6 → Final Reveal
 
 showCauseButton.addEventListener(
     "click",
@@ -1167,4 +1327,4 @@ showCauseButton.addEventListener(
         }, 500);
 
     }
-)
+);
