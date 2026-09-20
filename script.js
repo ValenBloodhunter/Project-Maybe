@@ -1,10 +1,10 @@
 // =========================
 // PROJECT MAYBE
-// PHASE 4
+// PHASE 5
 // =========================
 
 console.log(
-    "Project Maybe v0.4 initialized."
+    "Project Maybe v0.5 initialized."
 );
 
 
@@ -32,6 +32,11 @@ const databaseContinueButton =
         "databaseContinueButton"
     );
 
+const evidenceContinueButton =
+    document.getElementById(
+        "evidenceContinueButton"
+    );
+
 
 const landingScreen =
     document.getElementById(
@@ -51,6 +56,11 @@ const gitScreen =
 const databaseScreen =
     document.getElementById(
         "databaseScreen"
+    );
+
+const evidenceScreen =
+    document.getElementById(
+        "evidenceScreen"
     );
 
 const nextScreen =
@@ -82,6 +92,17 @@ const databaseOutput =
 const personResult =
     document.getElementById(
         "personResult"
+    );
+
+
+const evidenceCards =
+    document.querySelectorAll(
+        ".evidence-card"
+    );
+
+const evidenceConclusion =
+    document.getElementById(
+        "evidenceConclusion"
     );
 
 
@@ -159,7 +180,7 @@ const commits = [
 
 // =========================
 // PHASE 4
-// DATABASE SEQUENCE
+// DATABASE
 // =========================
 
 const databaseLines = [
@@ -324,7 +345,8 @@ async function typeLine(text) {
 
 
 // =========================
-// START SYSTEM SCAN
+// PHASE 2
+// START SCAN
 // =========================
 
 async function startScan() {
@@ -375,6 +397,7 @@ async function startScan() {
 
 
 // =========================
+// PHASE 3
 // START GIT HISTORY
 // =========================
 
@@ -540,13 +563,13 @@ function createDatabaseLine(
 
 
 // =========================
+// PHASE 4
 // START DATABASE SEARCH
 // =========================
 
 async function startDatabaseSearch() {
 
-    databaseOutput.innerHTML =
-        "";
+    databaseOutput.innerHTML = "";
 
     personResult.classList.add(
         "hidden"
@@ -587,17 +610,8 @@ async function startDatabaseSearch() {
     }
 
 
-    /*
-        Pause after:
-        "1 result found."
-    */
-
     await wait(1300);
 
-
-    /*
-        Reveal their name.
-    */
 
     personResult.classList.remove(
         "hidden"
@@ -615,6 +629,76 @@ async function startDatabaseSearch() {
 
 
 // =========================
+// PHASE 5
+// START EVIDENCE
+// =========================
+
+async function startEvidence() {
+
+    /*
+        Reset cards in case this
+        function ever runs again.
+    */
+
+    evidenceCards.forEach(
+        card => {
+
+            card.classList.remove(
+                "visible"
+            );
+
+        }
+    );
+
+
+    evidenceConclusion.classList.add(
+        "hidden"
+    );
+
+    evidenceContinueButton.classList.add(
+        "hidden"
+    );
+
+
+    await wait(700);
+
+
+    /*
+        Reveal evidence one at a time.
+    */
+
+    for (
+        const card of evidenceCards
+    ) {
+
+        card.classList.add(
+            "visible"
+        );
+
+        await wait(850);
+
+    }
+
+
+    await wait(700);
+
+
+    evidenceConclusion.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(1000);
+
+
+    evidenceContinueButton.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+// =========================
 // PHASE 1 → PHASE 2
 // =========================
 
@@ -624,6 +708,7 @@ runButton.addEventListener(
 
         runButton.disabled =
             true;
+
 
         runButton.innerHTML =
             "&gt; Running...";
@@ -715,6 +800,34 @@ databaseContinueButton.addEventListener(
 
         changeScreen(
             databaseScreen,
+            evidenceScreen
+        );
+
+
+        setTimeout(() => {
+
+            startEvidence();
+
+        }, 500);
+
+    }
+);
+
+
+// =========================
+// PHASE 5 → PHASE 6
+// =========================
+
+evidenceContinueButton.addEventListener(
+    "click",
+    () => {
+
+        evidenceContinueButton.disabled =
+            true;
+
+
+        changeScreen(
+            evidenceScreen,
             nextScreen
         );
 

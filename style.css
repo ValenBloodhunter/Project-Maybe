@@ -30,6 +30,9 @@
     --commit: #d2a8ff;
 
     --warning: #f2cc60;
+
+    /* Slightly warmer Phase 5 accent */
+    --warm: #e6b673;
 }
 
 
@@ -179,11 +182,9 @@ body {
     transform:
         translateX(-50%);
 
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    font-size:
-        0.75rem;
+    font-size: 0.75rem;
 
     white-space: nowrap;
 }
@@ -311,7 +312,9 @@ button:active {
 
 button:disabled {
     opacity: 0.6;
+
     cursor: default;
+
     transform: none;
 }
 
@@ -430,7 +433,7 @@ button:disabled {
 
 
 /* =========================
-   RESULT CARD
+   SYSTEM RESULT
 ========================= */
 
 .result-card {
@@ -736,6 +739,235 @@ button:disabled {
 
 
 /* =========================
+   PHASE 5
+   EVIDENCE
+========================= */
+
+.evidence-screen {
+    background:
+        radial-gradient(
+            circle at center top,
+            rgba(
+                230,
+                182,
+                115,
+                0.07
+            ),
+            transparent 42%
+        );
+}
+
+
+.evidence-container {
+    width: 100%;
+    max-width: 760px;
+
+    padding:
+        55px
+        45px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 16px;
+
+    background:
+        rgba(
+            13,
+            16,
+            21,
+            0.96
+        );
+
+    box-shadow:
+        0 25px 80px
+        rgba(
+            0,
+            0,
+            0,
+            0.5
+        );
+}
+
+
+.evidence-terminal {
+    color: var(--accent);
+
+    font-size: 0.75rem;
+
+    margin-bottom: 36px;
+}
+
+
+.evidence-label {
+    color: var(--warm);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+
+.evidence-header h2 {
+    font-size:
+        clamp(
+            2.4rem,
+            7vw,
+            4.2rem
+        );
+
+    letter-spacing: -2px;
+
+    margin-bottom: 15px;
+}
+
+
+.evidence-intro {
+    color: var(--muted);
+
+    line-height: 1.7;
+
+    margin-bottom: 38px;
+}
+
+
+/* =========================
+   EVIDENCE CARDS
+========================= */
+
+.evidence-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            1fr
+        );
+
+    gap: 15px;
+}
+
+
+.evidence-card {
+    padding:
+        25px
+        22px;
+
+    min-height: 190px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content:
+        space-between;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.025
+        );
+
+    border:
+        1px solid
+        #2c323c;
+
+    border-radius: 12px;
+
+    opacity: 0;
+
+    transform:
+        translateY(18px);
+}
+
+
+.evidence-card.visible {
+    animation:
+        evidenceEnter
+        0.65s
+        ease
+        forwards;
+}
+
+
+.evidence-number {
+    color: var(--warm);
+
+    font-size: 0.68rem;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 30px;
+}
+
+
+.evidence-text {
+    color: #d5dae1;
+
+    line-height: 1.75;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================
+   EVIDENCE FOOTER
+========================= */
+
+.evidence-footer {
+    margin-top: 30px;
+}
+
+
+.evidence-conclusion {
+    color: #9ba4b1;
+
+    line-height: 1.7;
+
+    font-size: 0.85rem;
+
+    margin-bottom: 22px;
+
+    animation:
+        resultEnter
+        0.6s
+        ease;
+}
+
+
+/* =========================
+   OPTIONAL PHOTO STYLING
+   USED LATER
+========================= */
+
+.memory-photo {
+    margin-top: 25px;
+}
+
+
+.memory-photo img {
+    display: block;
+
+    width: 100%;
+
+    max-height: 420px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        var(--border);
+}
+
+
+/* =========================
    PLACEHOLDER
 ========================= */
 
@@ -909,7 +1141,7 @@ button:disabled {
 
 @keyframes personReveal {
 
-    0% {
+    from {
         opacity: 0;
 
         transform:
@@ -917,11 +1149,30 @@ button:disabled {
             translateY(12px);
     }
 
-    100% {
+    to {
         opacity: 1;
 
         transform:
             scale(1)
+            translateY(0);
+    }
+
+}
+
+
+@keyframes evidenceEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
             translateY(0);
     }
 
@@ -948,7 +1199,7 @@ button:disabled {
 ========================= */
 
 @media
-(max-width: 600px) {
+(max-width: 700px) {
 
     .screen {
         padding: 14px;
@@ -1017,6 +1268,32 @@ button:disabled {
         padding:
             25px
             15px;
+    }
+
+
+    .evidence-container {
+        padding:
+            38px
+            22px;
+    }
+
+
+    .evidence-list {
+        grid-template-columns: 1fr;
+    }
+
+
+    .evidence-card {
+        min-height: auto;
+
+        padding:
+            22px
+            20px;
+    }
+
+
+    .evidence-number {
+        margin-bottom: 18px;
     }
 
 
