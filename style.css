@@ -28,6 +28,8 @@
     --accent-dark: #3fb950;
 
     --commit: #d2a8ff;
+
+    --warning: #f2cc60;
 }
 
 
@@ -108,9 +110,9 @@ body {
 
 .window,
 .terminal-window,
-.git-window {
+.git-window,
+.database-window {
     width: 100%;
-
     max-width: 720px;
 
     background:
@@ -216,17 +218,13 @@ body {
 
 
 .terminal-label {
-    color:
-        var(--accent);
+    color: var(--accent);
 
-    font-size:
-        0.8rem;
+    font-size: 0.8rem;
 
-    margin-bottom:
-        24px;
+    margin-bottom: 24px;
 
-    opacity:
-        0.85;
+    opacity: 0.85;
 }
 
 
@@ -240,23 +238,18 @@ h1 {
 
     line-height: 1;
 
-    letter-spacing:
-        -3px;
+    letter-spacing: -3px;
 
-    margin-bottom:
-        24px;
+    margin-bottom: 24px;
 }
 
 
 .description {
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    line-height:
-        1.8;
+    line-height: 1.8;
 
-    margin-bottom:
-        38px;
+    margin-bottom: 38px;
 }
 
 
@@ -269,29 +262,21 @@ button {
         1px solid
         var(--accent-dark);
 
-    background:
-        transparent;
+    background: transparent;
 
-    color:
-        var(--accent);
+    color: var(--accent);
 
-    padding:
-        13px 24px;
+    padding: 13px 24px;
 
-    border-radius:
-        7px;
+    border-radius: 7px;
 
-    font-family:
-        inherit;
+    font-family: inherit;
 
-    font-size:
-        0.95rem;
+    font-size: 0.95rem;
 
-    cursor:
-        pointer;
+    cursor: pointer;
 
-    transition:
-        0.25s ease;
+    transition: 0.25s ease;
 }
 
 
@@ -326,9 +311,7 @@ button:active {
 
 button:disabled {
     opacity: 0.6;
-
     cursor: default;
-
     transform: none;
 }
 
@@ -361,48 +344,47 @@ button:disabled {
 
 
 /* =========================
-   TERMINAL SCAN
+   TERMINAL / GIT / DATABASE
 ========================= */
 
 .terminal-body,
-.git-body {
+.git-body,
+.database-body {
     padding:
         45px
         50px
         50px;
 
-    min-height:
-        480px;
+    min-height: 480px;
 }
 
 
 .terminal-path {
-    color:
-        var(--accent);
+    color: var(--accent);
 
-    font-size:
-        0.8rem;
+    font-size: 0.8rem;
 
-    margin-bottom:
-        30px;
+    margin-bottom: 30px;
+
+    line-height: 1.5;
 }
 
 
+/* =========================
+   TERMINAL OUTPUT
+========================= */
+
 .terminal-output {
-    min-height:
-        190px;
+    min-height: 190px;
 }
 
 
 .terminal-line {
-    color:
-        #b4bdc9;
+    color: #b4bdc9;
 
-    font-size:
-        0.9rem;
+    font-size: 0.9rem;
 
-    line-height:
-        1.8;
+    line-height: 1.8;
 
     opacity: 0;
 
@@ -420,8 +402,7 @@ button:disabled {
 .terminal-line::before {
     content: "> ";
 
-    color:
-        var(--accent);
+    color: var(--accent);
 }
 
 
@@ -430,23 +411,16 @@ button:disabled {
 ========================= */
 
 .cursor {
-    display:
-        inline-block;
+    display: inline-block;
 
-    width:
-        8px;
+    width: 8px;
+    height: 15px;
 
-    height:
-        15px;
+    margin-left: 5px;
 
-    margin-left:
-        5px;
+    background: var(--accent);
 
-    background:
-        var(--accent);
-
-    vertical-align:
-        middle;
+    vertical-align: middle;
 
     animation:
         blink
@@ -460,18 +434,15 @@ button:disabled {
 ========================= */
 
 .result-card {
-    margin-top:
-        25px;
+    margin-top: 25px;
 
-    padding:
-        24px;
+    padding: 24px;
 
     border:
         1px solid
         var(--border);
 
-    border-radius:
-        10px;
+    border-radius: 10px;
 
     background:
         rgba(
@@ -489,32 +460,25 @@ button:disabled {
 
 
 .result-title {
-    color:
-        var(--accent);
+    color: var(--accent);
 
-    font-size:
-        0.75rem;
+    font-size: 0.75rem;
 
-    letter-spacing:
-        2px;
+    letter-spacing: 2px;
 
-    margin-bottom:
-        20px;
+    margin-bottom: 20px;
 }
 
 
 .stat {
-    display:
-        flex;
+    display: flex;
 
     justify-content:
         space-between;
 
-    gap:
-        20px;
+    gap: 20px;
 
-    padding:
-        10px 0;
+    padding: 10px 0;
 
     border-bottom:
         1px solid
@@ -525,8 +489,7 @@ button:disabled {
             0.05
         );
 
-    color:
-        var(--muted);
+    color: var(--muted);
 }
 
 
@@ -536,14 +499,11 @@ button:disabled {
 
 
 .stat strong {
-    color:
-        var(--text);
+    color: var(--text);
 
-    font-weight:
-        normal;
+    font-weight: normal;
 
-    text-align:
-        right;
+    text-align: right;
 }
 
 
@@ -570,8 +530,7 @@ button:disabled {
 
     gap: 18px;
 
-    padding:
-        17px 18px;
+    padding: 17px 18px;
 
     background:
         rgba(
@@ -585,8 +544,7 @@ button:disabled {
         1px solid
         var(--border);
 
-    border-radius:
-        9px;
+    border-radius: 9px;
 
     opacity: 0;
 
@@ -602,36 +560,27 @@ button:disabled {
 
 
 .commit-number {
-    color:
-        var(--commit);
+    color: var(--commit);
 
-    font-size:
-        0.75rem;
+    font-size: 0.75rem;
 
-    padding-top:
-        2px;
+    padding-top: 2px;
 }
 
 
 .commit-message {
-    color:
-        #c7ced8;
+    color: #c7ced8;
 
-    font-size:
-        0.9rem;
+    font-size: 0.9rem;
 
-    line-height:
-        1.5;
+    line-height: 1.5;
 }
 
 
 .commit-message .type {
-    color:
-        var(--accent);
+    color: var(--accent);
 }
 
-
-/* Slight emphasis as commits get personal */
 
 .commit.personal {
     border-color:
@@ -645,8 +594,144 @@ button:disabled {
 
 
 .commit.personal .commit-message {
-    color:
-        #e4e8ed;
+    color: #e4e8ed;
+}
+
+
+/* =========================
+   DATABASE
+========================= */
+
+.database-output {
+    min-height: 250px;
+}
+
+
+.database-line {
+    display: flex;
+
+    gap: 10px;
+
+    color: #b4bdc9;
+
+    font-size: 0.9rem;
+
+    line-height: 1.9;
+
+    opacity: 0;
+
+    transform:
+        translateY(5px);
+
+    animation:
+        databaseLineEnter
+        0.35s
+        ease
+        forwards;
+}
+
+
+.database-prefix {
+    color: var(--accent);
+
+    flex-shrink: 0;
+}
+
+
+.database-line.filter {
+    padding-left: 18px;
+
+    color: #d5d9df;
+}
+
+
+.database-line.filter::before {
+    content: "✓";
+
+    color: var(--accent);
+
+    margin-right: 8px;
+}
+
+
+.database-line.result-line {
+    margin-top: 10px;
+
+    color: var(--warning);
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   PERSON RESULT
+========================= */
+
+.person-result {
+    margin-top: 25px;
+
+    padding: 30px 25px;
+
+    border:
+        1px solid
+        rgba(
+            126,
+            231,
+            135,
+            0.35
+        );
+
+    border-radius: 12px;
+
+    background:
+        rgba(
+            126,
+            231,
+            135,
+            0.035
+        );
+
+    text-align: center;
+
+    animation:
+        personReveal
+        0.8s
+        ease
+        forwards;
+}
+
+
+.match-label {
+    color: var(--accent);
+
+    font-size: 0.7rem;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+}
+
+
+.person-result h2 {
+    font-size:
+        clamp(
+            2rem,
+            7vw,
+            4rem
+        );
+
+    letter-spacing: -2px;
+
+    margin-bottom: 16px;
+}
+
+
+.match-subtitle {
+    color: #687383;
+
+    font-size: 0.72rem;
+
+    line-height: 1.6;
 }
 
 
@@ -656,22 +741,17 @@ button:disabled {
 
 .placeholder {
     width: 100%;
+    max-width: 650px;
 
-    max-width:
-        650px;
+    padding: 50px;
 
-    padding:
-        50px;
-
-    background:
-        var(--panel);
+    background: var(--panel);
 
     border:
         1px solid
         var(--border);
 
-    border-radius:
-        12px;
+    border-radius: 12px;
 }
 
 
@@ -681,24 +761,20 @@ button:disabled {
 
 
 .placeholder p {
-    color:
-        var(--muted);
+    color: var(--muted);
 
-    line-height:
-        1.7;
+    line-height: 1.7;
 }
 
 
 .phase-placeholder {
-    margin-top:
-        25px;
+    margin-top: 25px;
 
     color:
         #555f6d
         !important;
 
-    font-size:
-        0.75rem;
+    font-size: 0.75rem;
 }
 
 
@@ -812,6 +888,46 @@ button:disabled {
 }
 
 
+@keyframes databaseLineEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes personReveal {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            scale(0.96)
+            translateY(12px);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+
+}
+
+
 @keyframes blink {
 
     0%,
@@ -848,19 +964,18 @@ button:disabled {
 
 
     .terminal-body,
-    .git-body {
+    .git-body,
+    .database-body {
         padding:
             35px
             22px;
 
-        min-height:
-            450px;
+        min-height: 450px;
     }
 
 
     h1 {
-        letter-spacing:
-            -2px;
+        letter-spacing: -2px;
     }
 
 
@@ -870,8 +985,7 @@ button:disabled {
 
 
     .stat {
-        flex-direction:
-            column;
+        flex-direction: column;
 
         gap: 5px;
     }
@@ -883,16 +997,26 @@ button:disabled {
 
 
     .commit {
-        grid-template-columns:
-            1fr;
+        grid-template-columns: 1fr;
 
         gap: 7px;
     }
 
 
     .commit-list {
-        min-height:
-            410px;
+        min-height: 410px;
+    }
+
+
+    .database-output {
+        min-height: 290px;
+    }
+
+
+    .person-result {
+        padding:
+            25px
+            15px;
     }
 
 

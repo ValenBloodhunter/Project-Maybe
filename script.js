@@ -1,10 +1,10 @@
 // =========================
 // PROJECT MAYBE
-// PHASE 3
+// PHASE 4
 // =========================
 
 console.log(
-    "Project Maybe v0.3 initialized."
+    "Project Maybe v0.4 initialized."
 );
 
 
@@ -27,6 +27,11 @@ const gitNextButton =
         "gitNextButton"
     );
 
+const databaseContinueButton =
+    document.getElementById(
+        "databaseContinueButton"
+    );
+
 
 const landingScreen =
     document.getElementById(
@@ -41,6 +46,11 @@ const scanScreen =
 const gitScreen =
     document.getElementById(
         "gitScreen"
+    );
+
+const databaseScreen =
+    document.getElementById(
+        "databaseScreen"
     );
 
 const nextScreen =
@@ -64,9 +74,20 @@ const commitList =
         "commitList"
     );
 
+const databaseOutput =
+    document.getElementById(
+        "databaseOutput"
+    );
+
+const personResult =
+    document.getElementById(
+        "personResult"
+    );
+
 
 // =========================
-// PHASE 2 SCAN CONTENT
+// PHASE 2
+// SYSTEM SCAN
 // =========================
 
 const scanLines = [
@@ -79,7 +100,8 @@ const scanLines = [
 
 
 // =========================
-// PHASE 3 COMMITS
+// PHASE 3
+// GIT COMMITS
 // =========================
 
 const commits = [
@@ -130,6 +152,72 @@ const commits = [
         message:
             "no fix found",
         personal: true
+    }
+
+];
+
+
+// =========================
+// PHASE 4
+// DATABASE SEQUENCE
+// =========================
+
+const databaseLines = [
+
+    {
+        text:
+            "Searching database...",
+        type:
+            "normal"
+    },
+
+    {
+        text:
+            "8,231,492,103 people indexed.",
+        type:
+            "normal"
+    },
+
+    {
+        text:
+            "Applying filters...",
+        type:
+            "normal"
+    },
+
+    {
+        text:
+            "interesting",
+        type:
+            "filter"
+    },
+
+    {
+        text:
+            "funny",
+        type:
+            "filter"
+    },
+
+    {
+        text:
+            "annoyingly memorable",
+        type:
+            "filter"
+    },
+
+    {
+        text:
+            "makes my day better",
+        type:
+            "filter"
+    },
+
+    {
+        text:
+            "1 result found.",
+        type:
+            "result"
     }
 
 ];
@@ -236,8 +324,7 @@ async function typeLine(text) {
 
 
 // =========================
-// PHASE 2
-// START SCAN
+// START SYSTEM SCAN
 // =========================
 
 async function startScan() {
@@ -288,8 +375,7 @@ async function startScan() {
 
 
 // =========================
-// PHASE 3
-// SHOW GIT COMMITS
+// START GIT HISTORY
 // =========================
 
 async function startGitHistory() {
@@ -368,7 +454,168 @@ async function startGitHistory() {
 
 
 // =========================
-// RUN BUTTON
+// DATABASE LINE
+// =========================
+
+function createDatabaseLine(
+    text,
+    type
+) {
+
+    const line =
+        document.createElement(
+            "div"
+        );
+
+
+    line.classList.add(
+        "database-line"
+    );
+
+
+    if (
+        type === "filter"
+    ) {
+
+        line.classList.add(
+            "filter"
+        );
+
+        line.textContent =
+            text;
+
+    }
+
+    else {
+
+        const prefix =
+            document.createElement(
+                "span"
+            );
+
+        prefix.classList.add(
+            "database-prefix"
+        );
+
+        prefix.textContent =
+            ">";
+
+
+        const content =
+            document.createElement(
+                "span"
+            );
+
+        content.textContent =
+            text;
+
+
+        line.appendChild(
+            prefix
+        );
+
+        line.appendChild(
+            content
+        );
+
+    }
+
+
+    if (
+        type === "result"
+    ) {
+
+        line.classList.add(
+            "result-line"
+        );
+
+    }
+
+
+    databaseOutput.appendChild(
+        line
+    );
+
+}
+
+
+// =========================
+// START DATABASE SEARCH
+// =========================
+
+async function startDatabaseSearch() {
+
+    databaseOutput.innerHTML =
+        "";
+
+    personResult.classList.add(
+        "hidden"
+    );
+
+    databaseContinueButton.classList.add(
+        "hidden"
+    );
+
+
+    await wait(600);
+
+
+    for (
+        const item of databaseLines
+    ) {
+
+        createDatabaseLine(
+            item.text,
+            item.type
+        );
+
+
+        if (
+            item.type === "filter"
+        ) {
+
+            await wait(650);
+
+        }
+
+        else {
+
+            await wait(900);
+
+        }
+
+    }
+
+
+    /*
+        Pause after:
+        "1 result found."
+    */
+
+    await wait(1300);
+
+
+    /*
+        Reveal their name.
+    */
+
+    personResult.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(1400);
+
+
+    databaseContinueButton.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+// =========================
+// PHASE 1 → PHASE 2
 // =========================
 
 runButton.addEventListener(
@@ -377,7 +624,6 @@ runButton.addEventListener(
 
         runButton.disabled =
             true;
-
 
         runButton.innerHTML =
             "&gt; Running...";
@@ -400,7 +646,7 @@ runButton.addEventListener(
 
 
 // =========================
-// SCAN → GIT
+// PHASE 2 → PHASE 3
 // =========================
 
 continueButton.addEventListener(
@@ -428,15 +674,47 @@ continueButton.addEventListener(
 
 
 // =========================
-// GIT → PHASE 4
+// PHASE 3 → PHASE 4
 // =========================
 
 gitNextButton.addEventListener(
     "click",
     () => {
 
+        gitNextButton.disabled =
+            true;
+
+
         changeScreen(
             gitScreen,
+            databaseScreen
+        );
+
+
+        setTimeout(() => {
+
+            startDatabaseSearch();
+
+        }, 500);
+
+    }
+);
+
+
+// =========================
+// PHASE 4 → PHASE 5
+// =========================
+
+databaseContinueButton.addEventListener(
+    "click",
+    () => {
+
+        databaseContinueButton.disabled =
+            true;
+
+
+        changeScreen(
+            databaseScreen,
             nextScreen
         );
 

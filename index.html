@@ -19,7 +19,7 @@
 
         <!-- =========================
              PHASE 1
-             LANDING PAGE
+             LANDING
         ========================== -->
 
         <section
@@ -70,7 +70,7 @@
             </div>
 
             <p class="build-text">
-                build v0.3.0
+                build v0.4.0
             </p>
 
         </section>
@@ -107,7 +107,6 @@
                         C:\projects\maybe&gt; run
                     </p>
 
-
                     <div
                         id="terminalOutput"
                         class="terminal-output"
@@ -123,43 +122,19 @@
                             STATUS REPORT
                         </p>
 
-
                         <div class="stat">
-
-                            <span>
-                                Humor detected
-                            </span>
-
-                            <strong>
-                                94%
-                            </strong>
-
+                            <span>Humor detected</span>
+                            <strong>94%</strong>
                         </div>
 
-
                         <div class="stat">
-
-                            <span>
-                                Chaos level
-                            </span>
-
-                            <strong>
-                                suspicious
-                            </strong>
-
+                            <span>Chaos level</span>
+                            <strong>suspicious</strong>
                         </div>
 
-
                         <div class="stat">
-
-                            <span>
-                                Main character energy
-                            </span>
-
-                            <strong>
-                                confirmed
-                            </strong>
-
+                            <span>Main character energy</span>
+                            <strong>confirmed</strong>
                         </div>
 
                     </div>
@@ -181,7 +156,7 @@
 
         <!-- =========================
              PHASE 3
-             FAKE GIT HISTORY
+             GIT HISTORY
         ========================== -->
 
         <section
@@ -233,7 +208,85 @@
 
 
         <!-- =========================
-             TEMPORARY PHASE 4
+             PHASE 4
+             DATABASE SEARCH
+        ========================== -->
+
+        <section
+            class="screen"
+            id="databaseScreen"
+        >
+
+            <div class="database-window">
+
+                <div class="window-header">
+
+                    <div class="window-controls">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <p>people-database.exe</p>
+
+                </div>
+
+
+                <div class="database-body">
+
+                    <p class="terminal-path">
+                        C:\projects\maybe&gt;
+                        search --target=unknown
+                    </p>
+
+
+                    <div
+                        id="databaseOutput"
+                        class="database-output"
+                    ></div>
+
+
+                    <!-- Final result -->
+                    <div
+                        id="personResult"
+                        class="person-result hidden"
+                    >
+
+                        <p class="match-label">
+                            MATCH FOUND
+                        </p>
+
+                        <!--
+                            PERSONALIZE THIS LATER
+                        -->
+                        <h2 id="personName">
+                            [THEIR NAME]
+                        </h2>
+
+                        <p class="match-subtitle">
+                            probability of coincidence:
+                            getting uncomfortably low
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        id="databaseContinueButton"
+                        class="hidden"
+                    >
+                        Continue &gt;
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TEMPORARY PHASE 5
         ========================== -->
 
         <section
@@ -248,15 +301,15 @@
                 </p>
 
                 <h2>
-                    Repository analysis complete.
+                    Okay.
                 </h2>
 
                 <p>
-                    Something else appears to be running...
+                    That was oddly specific.
                 </p>
 
                 <p class="phase-placeholder">
-                    Phase 4 goes here.
+                    Phase 5 goes here.
                 </p>
 
             </div>
