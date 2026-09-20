@@ -19,14 +19,16 @@
 
         <!-- =========================
              PHASE 1
-             UNASSUMING LANDING PAGE
+             LANDING PAGE
         ========================== -->
 
-        <section class="screen active" id="landingScreen">
+        <section
+            class="screen active"
+            id="landingScreen"
+        >
 
             <div class="window">
 
-                <!-- Fake window header -->
                 <div class="window-header">
 
                     <div class="window-controls">
@@ -40,7 +42,6 @@
                 </div>
 
 
-                <!-- Main content -->
                 <div class="window-content">
 
                     <p class="terminal-label">
@@ -56,8 +57,7 @@
                     </p>
 
                     <button id="runButton">
-                        <span>&gt;</span>
-                        Run
+                        &gt; Run
                     </button>
 
                     <p class="tiny-warning">
@@ -70,29 +70,193 @@
             </div>
 
             <p class="build-text">
-                build v0.1.0
+                build v0.3.0
             </p>
 
         </section>
 
 
         <!-- =========================
-             TEMPORARY NEXT SCREEN
-             Phase 2 will replace this
+             PHASE 2
+             SYSTEM SCAN
         ========================== -->
 
-        <section class="screen" id="nextScreen">
+        <section
+            class="screen"
+            id="scanScreen"
+        >
+
+            <div class="terminal-window">
+
+                <div class="window-header">
+
+                    <div class="window-controls">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <p>system-scan.exe</p>
+
+                </div>
+
+
+                <div class="terminal-body">
+
+                    <p class="terminal-path">
+                        C:\projects\maybe&gt; run
+                    </p>
+
+
+                    <div
+                        id="terminalOutput"
+                        class="terminal-output"
+                    ></div>
+
+
+                    <div
+                        id="resultCard"
+                        class="result-card hidden"
+                    >
+
+                        <p class="result-title">
+                            STATUS REPORT
+                        </p>
+
+
+                        <div class="stat">
+
+                            <span>
+                                Humor detected
+                            </span>
+
+                            <strong>
+                                94%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <span>
+                                Chaos level
+                            </span>
+
+                            <strong>
+                                suspicious
+                            </strong>
+
+                        </div>
+
+
+                        <div class="stat">
+
+                            <span>
+                                Main character energy
+                            </span>
+
+                            <strong>
+                                confirmed
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        id="continueButton"
+                        class="hidden"
+                    >
+                        Continue &gt;
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             PHASE 3
+             FAKE GIT HISTORY
+        ========================== -->
+
+        <section
+            class="screen"
+            id="gitScreen"
+        >
+
+            <div class="git-window">
+
+                <div class="window-header">
+
+                    <div class="window-controls">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <p>git — project-maybe</p>
+
+                </div>
+
+
+                <div class="git-body">
+
+                    <p class="terminal-path">
+                        C:\projects\maybe&gt;
+                        git log --oneline
+                    </p>
+
+
+                    <div
+                        id="commitList"
+                        class="commit-list"
+                    ></div>
+
+
+                    <button
+                        id="gitNextButton"
+                        class="hidden"
+                    >
+                        Next &gt;
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             TEMPORARY PHASE 4
+        ========================== -->
+
+        <section
+            class="screen"
+            id="nextScreen"
+        >
 
             <div class="placeholder">
 
                 <p class="terminal-label">
-                    C:\projects\maybe&gt; run
+                    C:\projects\maybe&gt;
                 </p>
 
-                <h2>Process started.</h2>
+                <h2>
+                    Repository analysis complete.
+                </h2>
 
                 <p>
-                    Phase 2 goes here.
+                    Something else appears to be running...
+                </p>
+
+                <p class="phase-placeholder">
+                    Phase 4 goes here.
                 </p>
 
             </div>

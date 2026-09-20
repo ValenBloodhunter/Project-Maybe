@@ -10,11 +10,12 @@
 
 
 /* =========================
-   ROOT
+   VARIABLES
 ========================= */
 
 :root {
     --bg: #050608;
+
     --panel: #0d1015;
     --panel-light: #13171e;
 
@@ -25,6 +26,8 @@
 
     --accent: #7ee787;
     --accent-dark: #3fb950;
+
+    --commit: #d2a8ff;
 }
 
 
@@ -54,13 +57,8 @@ body {
 }
 
 
-/* =========================
-   MAIN APP
-========================= */
-
 .app {
     min-height: 100vh;
-    width: 100%;
 }
 
 
@@ -88,33 +86,63 @@ body {
     display: flex;
 
     animation:
-        screenFadeIn 0.7s ease forwards;
+        screenFadeIn
+        0.6s
+        ease
+        forwards;
+}
+
+
+.screen.leaving {
+    animation:
+        screenFadeOut
+        0.4s
+        ease
+        forwards;
 }
 
 
 /* =========================
-   WINDOW
+   WINDOWS
 ========================= */
 
-.window {
+.window,
+.terminal-window,
+.git-window {
     width: 100%;
+
     max-width: 720px;
 
     background:
-        rgba(13, 16, 21, 0.96);
+        rgba(
+            13,
+            16,
+            21,
+            0.96
+        );
 
     border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
-    border-radius: 14px;
+    border-radius:
+        14px;
 
     overflow: hidden;
 
     box-shadow:
-        0 25px 80px rgba(0, 0, 0, 0.5);
+        0 25px 80px
+        rgba(
+            0,
+            0,
+            0,
+            0.5
+        );
 
     animation:
-        windowEnter 0.8s ease;
+        windowEnter
+        0.7s
+        ease;
 }
 
 
@@ -134,7 +162,8 @@ body {
         var(--panel-light);
 
     border-bottom:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
     position: relative;
 }
@@ -144,19 +173,19 @@ body {
     position: absolute;
 
     left: 50%;
-    transform: translateX(-50%);
 
-    color: var(--muted);
+    transform:
+        translateX(-50%);
 
-    font-size: 0.75rem;
+    color:
+        var(--muted);
+
+    font-size:
+        0.75rem;
 
     white-space: nowrap;
 }
 
-
-/* =========================
-   WINDOW CONTROL DOTS
-========================= */
 
 .window-controls {
     display: flex;
@@ -175,18 +204,16 @@ body {
 
 
 /* =========================
-   WINDOW CONTENT
+   LANDING
 ========================= */
 
 .window-content {
     padding:
-        65px 55px 55px;
+        65px
+        55px
+        55px;
 }
 
-
-/* =========================
-   TERMINAL LABEL
-========================= */
 
 .terminal-label {
     color:
@@ -203,10 +230,6 @@ body {
 }
 
 
-/* =========================
-   TITLE
-========================= */
-
 h1 {
     font-size:
         clamp(
@@ -215,8 +238,7 @@ h1 {
             5rem
         );
 
-    line-height:
-        1;
+    line-height: 1;
 
     letter-spacing:
         -3px;
@@ -226,10 +248,6 @@ h1 {
 }
 
 
-/* =========================
-   DESCRIPTION
-========================= */
-
 .description {
     color:
         var(--muted);
@@ -237,21 +255,19 @@ h1 {
     line-height:
         1.8;
 
-    font-size:
-        1rem;
-
     margin-bottom:
         38px;
 }
 
 
 /* =========================
-   RUN BUTTON
+   BUTTONS
 ========================= */
 
 button {
     border:
-        1px solid var(--accent-dark);
+        1px solid
+        var(--accent-dark);
 
     background:
         transparent;
@@ -279,19 +295,23 @@ button {
 }
 
 
-button span {
-    margin-right:
-        7px;
-}
-
-
 button:hover {
     background:
-        rgba(126, 231, 135, 0.08);
+        rgba(
+            126,
+            231,
+            135,
+            0.08
+        );
 
     box-shadow:
         0 0 25px
-        rgba(63, 185, 80, 0.12);
+        rgba(
+            63,
+            185,
+            80,
+            0.12
+        );
 
     transform:
         translateY(-2px);
@@ -304,51 +324,338 @@ button:active {
 }
 
 
+button:disabled {
+    opacity: 0.6;
+
+    cursor: default;
+
+    transform: none;
+}
+
+
 /* =========================
-   TINY WARNING
+   SMALL TEXT
 ========================= */
 
 .tiny-warning {
-    margin-top:
-        28px;
+    margin-top: 28px;
 
-    color:
-        #606a78;
+    color: #606a78;
 
-    font-size:
-        0.72rem;
+    font-size: 0.72rem;
 }
 
 
 .tiny-warning span {
-    color:
-        #808a98;
+    color: #808a98;
 }
 
-
-/* =========================
-   BUILD VERSION
-========================= */
 
 .build-text {
-    margin-top:
-        18px;
+    margin-top: 18px;
 
-    color:
-        #444c58;
+    color: #444c58;
 
-    font-size:
-        0.68rem;
+    font-size: 0.68rem;
 }
 
 
 /* =========================
-   PLACEHOLDER SCREEN
+   TERMINAL SCAN
+========================= */
+
+.terminal-body,
+.git-body {
+    padding:
+        45px
+        50px
+        50px;
+
+    min-height:
+        480px;
+}
+
+
+.terminal-path {
+    color:
+        var(--accent);
+
+    font-size:
+        0.8rem;
+
+    margin-bottom:
+        30px;
+}
+
+
+.terminal-output {
+    min-height:
+        190px;
+}
+
+
+.terminal-line {
+    color:
+        #b4bdc9;
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.8;
+
+    opacity: 0;
+
+    transform:
+        translateY(4px);
+
+    animation:
+        lineAppear
+        0.25s
+        ease
+        forwards;
+}
+
+
+.terminal-line::before {
+    content: "> ";
+
+    color:
+        var(--accent);
+}
+
+
+/* =========================
+   CURSOR
+========================= */
+
+.cursor {
+    display:
+        inline-block;
+
+    width:
+        8px;
+
+    height:
+        15px;
+
+    margin-left:
+        5px;
+
+    background:
+        var(--accent);
+
+    vertical-align:
+        middle;
+
+    animation:
+        blink
+        0.8s
+        infinite;
+}
+
+
+/* =========================
+   RESULT CARD
+========================= */
+
+.result-card {
+    margin-top:
+        25px;
+
+    padding:
+        24px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        10px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.02
+        );
+
+    animation:
+        resultEnter
+        0.5s
+        ease;
+}
+
+
+.result-title {
+    color:
+        var(--accent);
+
+    font-size:
+        0.75rem;
+
+    letter-spacing:
+        2px;
+
+    margin-bottom:
+        20px;
+}
+
+
+.stat {
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    gap:
+        20px;
+
+    padding:
+        10px 0;
+
+    border-bottom:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.05
+        );
+
+    color:
+        var(--muted);
+}
+
+
+.stat:last-child {
+    border-bottom: none;
+}
+
+
+.stat strong {
+    color:
+        var(--text);
+
+    font-weight:
+        normal;
+
+    text-align:
+        right;
+}
+
+
+/* =========================
+   GIT HISTORY
+========================= */
+
+.commit-list {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 16px;
+
+    min-height: 330px;
+}
+
+
+.commit {
+    display: grid;
+
+    grid-template-columns:
+        75px 1fr;
+
+    gap: 18px;
+
+    padding:
+        17px 18px;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.02
+        );
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        9px;
+
+    opacity: 0;
+
+    transform:
+        translateY(12px);
+
+    animation:
+        commitEnter
+        0.45s
+        ease
+        forwards;
+}
+
+
+.commit-number {
+    color:
+        var(--commit);
+
+    font-size:
+        0.75rem;
+
+    padding-top:
+        2px;
+}
+
+
+.commit-message {
+    color:
+        #c7ced8;
+
+    font-size:
+        0.9rem;
+
+    line-height:
+        1.5;
+}
+
+
+.commit-message .type {
+    color:
+        var(--accent);
+}
+
+
+/* Slight emphasis as commits get personal */
+
+.commit.personal {
+    border-color:
+        rgba(
+            126,
+            231,
+            135,
+            0.25
+        );
+}
+
+
+.commit.personal .commit-message {
+    color:
+        #e4e8ed;
+}
+
+
+/* =========================
+   PLACEHOLDER
 ========================= */
 
 .placeholder {
-    width:
-        100%;
+    width: 100%;
 
     max-width:
         650px;
@@ -360,7 +667,8 @@ button:active {
         var(--panel);
 
     border:
-        1px solid var(--border);
+        1px solid
+        var(--border);
 
     border-radius:
         12px;
@@ -368,50 +676,44 @@ button:active {
 
 
 .placeholder h2 {
-    margin-bottom:
-        14px;
+    margin-bottom: 14px;
 }
 
 
-.placeholder p:last-child {
+.placeholder p {
     color:
         var(--muted);
+
+    line-height:
+        1.7;
+}
+
+
+.phase-placeholder {
+    margin-top:
+        25px;
+
+    color:
+        #555f6d
+        !important;
+
+    font-size:
+        0.75rem;
 }
 
 
 /* =========================
-   TRANSITION OUT
+   HIDDEN
 ========================= */
 
-.screen.leaving {
-    animation:
-        screenFadeOut 0.45s
-        ease forwards;
+.hidden {
+    display: none;
 }
 
 
 /* =========================
    ANIMATIONS
 ========================= */
-
-@keyframes windowEnter {
-
-    from {
-        opacity: 0;
-        transform:
-            translateY(18px)
-            scale(0.98);
-    }
-
-    to {
-        opacity: 1;
-        transform:
-            translateY(0)
-            scale(1);
-    }
-
-}
-
 
 @keyframes screenFadeIn {
 
@@ -439,6 +741,92 @@ button:active {
 }
 
 
+@keyframes windowEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(18px)
+            scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+
+}
+
+
+@keyframes lineAppear {
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes resultEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes commitEnter {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+
+}
+
+
+@keyframes blink {
+
+    0%,
+    49% {
+        opacity: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 0;
+    }
+
+}
+
+
 /* =========================
    MOBILE
 ========================= */
@@ -447,15 +835,26 @@ button:active {
 (max-width: 600px) {
 
     .screen {
-        padding:
-            16px;
+        padding: 14px;
     }
 
 
     .window-content {
         padding:
-            45px 24px
+            45px
+            24px
             38px;
+    }
+
+
+    .terminal-body,
+    .git-body {
+        padding:
+            35px
+            22px;
+
+        min-height:
+            450px;
     }
 
 
@@ -465,21 +864,42 @@ button:active {
     }
 
 
-    .description {
-        font-size:
-            0.9rem;
+    button {
+        width: 100%;
     }
 
 
-    button {
-        width:
-            100%;
+    .stat {
+        flex-direction:
+            column;
+
+        gap: 5px;
+    }
+
+
+    .stat strong {
+        text-align: left;
+    }
+
+
+    .commit {
+        grid-template-columns:
+            1fr;
+
+        gap: 7px;
+    }
+
+
+    .commit-list {
+        min-height:
+            410px;
     }
 
 
     .placeholder {
         padding:
-            35px 24px;
+            35px
+            24px;
     }
 
 }
