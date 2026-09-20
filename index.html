@@ -10,7 +10,6 @@
 
     <title>Project Maybe</title>
 
-    <!-- Main stylesheet -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -18,27 +17,91 @@
 
     <main class="app">
 
-        <section class="landing">
+        <!-- =========================
+             PHASE 1
+             UNASSUMING LANDING PAGE
+        ========================== -->
 
-            <p class="label">PROJECT_MAYBE</p>
+        <section class="screen active" id="landingScreen">
 
-            <h1>Something is being built.</h1>
+            <div class="window">
 
-            <p class="subtitle">
-                A small experiment.
-                Nothing suspicious here.
+                <!-- Fake window header -->
+                <div class="window-header">
+
+                    <div class="window-controls">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <p>project-maybe.exe</p>
+
+                </div>
+
+
+                <!-- Main content -->
+                <div class="window-content">
+
+                    <p class="terminal-label">
+                        C:\projects\maybe&gt;
+                    </p>
+
+                    <h1>
+                        Project Maybe
+                    </h1>
+
+                    <p class="description">
+                        A completely normal coding experiment.
+                    </p>
+
+                    <button id="runButton">
+                        <span>&gt;</span>
+                        Run
+                    </button>
+
+                    <p class="tiny-warning">
+                        No data will be stolen.
+                        <span>Probably.</span>
+                    </p>
+
+                </div>
+
+            </div>
+
+            <p class="build-text">
+                build v0.1.0
             </p>
 
-            <div class="status">
-                <span class="status-dot"></span>
-                <span id="statusText">System ready</span>
+        </section>
+
+
+        <!-- =========================
+             TEMPORARY NEXT SCREEN
+             Phase 2 will replace this
+        ========================== -->
+
+        <section class="screen" id="nextScreen">
+
+            <div class="placeholder">
+
+                <p class="terminal-label">
+                    C:\projects\maybe&gt; run
+                </p>
+
+                <h2>Process started.</h2>
+
+                <p>
+                    Phase 2 goes here.
+                </p>
+
             </div>
 
         </section>
 
     </main>
 
-    <!-- Main JavaScript -->
+
     <script src="script.js"></script>
 
 </body>
