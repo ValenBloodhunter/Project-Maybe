@@ -38,7 +38,6 @@
 
                 </div>
 
-
                 <div class="window-content">
 
                     <p class="terminal-label">
@@ -67,7 +66,7 @@
             </div>
 
             <p class="build-text">
-                build v0.6.0
+                build v0.7.0
             </p>
 
         </section>
@@ -94,7 +93,6 @@
 
                 </div>
 
-
                 <div class="terminal-body">
 
                     <p class="terminal-path">
@@ -105,7 +103,6 @@
                         id="terminalOutput"
                         class="terminal-output"
                     ></div>
-
 
                     <div
                         id="resultCard"
@@ -132,7 +129,6 @@
                         </div>
 
                     </div>
-
 
                     <button
                         id="continueButton"
@@ -168,7 +164,6 @@
                     <p>git — project-maybe</p>
 
                 </div>
-
 
                 <div class="git-body">
 
@@ -217,7 +212,6 @@
 
                 </div>
 
-
                 <div class="database-body">
 
                     <p class="terminal-path">
@@ -230,7 +224,6 @@
                         class="database-output"
                     ></div>
 
-
                     <div
                         id="personResult"
                         class="person-result hidden"
@@ -241,6 +234,7 @@
                         </p>
 
                         <!-- PERSONALIZE LATER -->
+
                         <h2>
                             [THEIR NAME]
                         </h2>
@@ -251,7 +245,6 @@
                         </p>
 
                     </div>
-
 
                     <button
                         id="databaseContinueButton"
@@ -302,10 +295,7 @@
                 </div>
 
 
-                <div
-                    id="evidenceList"
-                    class="evidence-list"
-                >
+                <div class="evidence-list">
 
                     <article class="evidence-card">
 
@@ -380,7 +370,7 @@
 
         <!-- =========================
              PHASE 6
-             FAKE ERROR
+             ERROR
         ========================== -->
 
         <section
@@ -390,7 +380,7 @@
 
             <div class="error-window">
 
-                <div class="window-header error-header">
+                <div class="window-header">
 
                     <div class="window-controls">
                         <span></span>
@@ -402,7 +392,6 @@
 
                 </div>
 
-
                 <div class="error-body">
 
                     <p class="terminal-path error-path">
@@ -411,10 +400,7 @@
                     </p>
 
 
-                    <div
-                        id="errorContent"
-                        class="error-content"
-                    >
+                    <div class="error-content">
 
                         <p
                             id="errorTitle"
@@ -482,33 +468,131 @@
 
 
         <!-- =========================
-             TEMPORARY PHASE 7
+             PHASE 7
+             FINAL REVEAL
         ========================== -->
 
         <section
-            class="screen"
-            id="revealPlaceholder"
+            class="screen reveal-screen"
+            id="revealScreen"
         >
 
-            <div class="placeholder">
+            <div class="reveal-glow"></div>
 
-                <p class="terminal-label">
-                    C:\projects\maybe&gt;
+
+            <div class="reveal-container">
+
+                <p
+                    id="revealOkay"
+                    class="reveal-step reveal-small hidden"
+                >
+                    Okay.
                 </p>
 
-                <h2>
-                    Cause loading...
-                </h2>
 
-                <p>
-                    Phase 7 goes here.
+                <p
+                    id="revealIntro"
+                    class="reveal-step reveal-intro hidden"
+                >
+                    The coding jokes were mostly
+                    an excuse to say this without
+                    making it boring.
                 </p>
+
+
+                <div
+                    id="confessionBlock"
+                    class="confession-block hidden"
+                >
+
+                    <p class="confession-label">
+                        so here's the actual point:
+                    </p>
+
+                    <h2>
+                        I really like you.
+                    </h2>
+
+                </div>
+
+
+                <div
+                    id="revealMessage"
+                    class="reveal-message hidden"
+                >
+
+                    <p>
+                        More than I originally planned to.
+                    </p>
+
+                    <p>
+                        I like talking to you.
+                    </p>
+
+                    <p>
+                        I like seeing your name pop up.
+                    </p>
+
+                    <p>
+                        And somehow you've become
+                        one of my favorite parts of my day.
+                    </p>
+
+                </div>
+
+
+                <div
+                    id="revealEnding"
+                    class="reveal-ending hidden"
+                >
+
+                    <p>
+                        I didn't know the least awkward
+                        way to say it.
+                    </p>
+
+                    <p>
+                        So naturally...
+                    </p>
+
+                    <p class="website-line">
+                        I made a website.
+                    </p>
+
+                </div>
+
+
+                <!-- Phase 8 will continue here -->
+
+                <div
+                    id="revealFinalMarker"
+                    class="reveal-final-marker hidden"
+                >
+
+                    <span></span>
+
+                    <p>
+                        end of extremely normal
+                        coding experiment
+                    </p>
+
+                    <span></span>
+
+                </div>
 
             </div>
+
+
+            <!-- Hearts generated by JavaScript -->
+            <div
+                id="heartContainer"
+                class="heart-container"
+            ></div>
 
         </section>
 
     </main>
+
 
     <script src="script.js"></script>
 

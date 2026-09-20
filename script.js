@@ -1,10 +1,10 @@
 // =========================
 // PROJECT MAYBE
-// PHASE 6
+// PHASE 7
 // =========================
 
 console.log(
-    "Project Maybe v0.6 initialized."
+    "Project Maybe v0.7 initialized."
 );
 
 
@@ -43,6 +43,8 @@ const showCauseButton =
     );
 
 
+// Screens
+
 const landingScreen =
     document.getElementById(
         "landingScreen"
@@ -73,11 +75,13 @@ const errorScreen =
         "errorScreen"
     );
 
-const revealPlaceholder =
+const revealScreen =
     document.getElementById(
-        "revealPlaceholder"
+        "revealScreen"
     );
 
+
+// Phase 2
 
 const terminalOutput =
     document.getElementById(
@@ -89,10 +93,16 @@ const resultCard =
         "resultCard"
     );
 
+
+// Phase 3
+
 const commitList =
     document.getElementById(
         "commitList"
     );
+
+
+// Phase 4
 
 const databaseOutput =
     document.getElementById(
@@ -105,6 +115,8 @@ const personResult =
     );
 
 
+// Phase 5
+
 const evidenceCards =
     document.querySelectorAll(
         ".evidence-card"
@@ -115,6 +127,8 @@ const evidenceConclusion =
         "evidenceConclusion"
     );
 
+
+// Phase 6
 
 const errorTitle =
     document.getElementById(
@@ -142,22 +156,62 @@ const causeFound =
     );
 
 
+// Phase 7
+
+const revealOkay =
+    document.getElementById(
+        "revealOkay"
+    );
+
+const revealIntro =
+    document.getElementById(
+        "revealIntro"
+    );
+
+const confessionBlock =
+    document.getElementById(
+        "confessionBlock"
+    );
+
+const revealMessage =
+    document.getElementById(
+        "revealMessage"
+    );
+
+const revealEnding =
+    document.getElementById(
+        "revealEnding"
+    );
+
+const revealFinalMarker =
+    document.getElementById(
+        "revealFinalMarker"
+    );
+
+const heartContainer =
+    document.getElementById(
+        "heartContainer"
+    );
+
+
 // =========================
-// PHASE 2
+// DATA
 // =========================
 
 const scanLines = [
+
     "initializing...",
+
     "loading unnecessary modules...",
+
     "checking system...",
+
     "scanning user...",
+
     "calculating completely objective statistics..."
+
 ];
 
-
-// =========================
-// PHASE 3
-// =========================
 
 const commits = [
 
@@ -211,10 +265,6 @@ const commits = [
 
 ];
 
-
-// =========================
-// PHASE 4
-// =========================
 
 const databaseLines = [
 
@@ -278,7 +328,7 @@ const databaseLines = [
 
 
 // =========================
-// WAIT
+// HELPERS
 // =========================
 
 function wait(milliseconds) {
@@ -293,10 +343,6 @@ function wait(milliseconds) {
 
 }
 
-
-// =========================
-// CHANGE SCREEN
-// =========================
 
 function changeScreen(
     currentScreen,
@@ -325,7 +371,7 @@ function changeScreen(
 
 
 // =========================
-// TYPE TERMINAL LINE
+// PHASE 2
 // =========================
 
 async function typeLine(text) {
@@ -376,10 +422,6 @@ async function typeLine(text) {
 
 }
 
-
-// =========================
-// PHASE 2
-// =========================
 
 async function startScan() {
 
@@ -459,7 +501,9 @@ async function startGitHistory() {
         );
 
 
-        if (commit.personal) {
+        if (
+            commit.personal
+        ) {
 
             commitElement.classList.add(
                 "personal"
@@ -506,7 +550,7 @@ async function startGitHistory() {
 
 
 // =========================
-// DATABASE LINE
+// PHASE 4
 // =========================
 
 function createDatabaseLine(
@@ -525,7 +569,9 @@ function createDatabaseLine(
     );
 
 
-    if (type === "filter") {
+    if (
+        type === "filter"
+    ) {
 
         line.classList.add(
             "filter"
@@ -547,8 +593,7 @@ function createDatabaseLine(
             "database-prefix"
         );
 
-        prefix.textContent =
-            ">";
+        prefix.textContent = ">";
 
 
         const content =
@@ -571,7 +616,9 @@ function createDatabaseLine(
     }
 
 
-    if (type === "result") {
+    if (
+        type === "result"
+    ) {
 
         line.classList.add(
             "result-line"
@@ -586,10 +633,6 @@ function createDatabaseLine(
 
 }
 
-
-// =========================
-// PHASE 4
-// =========================
 
 async function startDatabaseSearch() {
 
@@ -714,7 +757,6 @@ async function startEvidence() {
 
 // =========================
 // PHASE 6
-// ERROR SEQUENCE
 // =========================
 
 async function startErrorSequence() {
@@ -795,8 +837,181 @@ async function startErrorSequence() {
 
 
 // =========================
-// PHASE 1 → 2
+// HEART EFFECT
 // =========================
+
+function createHeart() {
+
+    const heart =
+        document.createElement(
+            "span"
+        );
+
+
+    heart.classList.add(
+        "floating-heart"
+    );
+
+
+    heart.textContent = "♥";
+
+
+    heart.style.left =
+        Math.random() * 100 + "%";
+
+
+    heart.style.animationDuration =
+        3 +
+        Math.random() * 2 +
+        "s";
+
+
+    heartContainer.appendChild(
+        heart
+    );
+
+
+    setTimeout(() => {
+
+        heart.remove();
+
+    }, 5000);
+
+}
+
+
+function startHearts() {
+
+    let heartsCreated = 0;
+
+
+    const heartInterval =
+        setInterval(() => {
+
+            createHeart();
+
+            heartsCreated++;
+
+
+            if (
+                heartsCreated >= 14
+            ) {
+
+                clearInterval(
+                    heartInterval
+                );
+
+            }
+
+        }, 220);
+
+}
+
+
+// =========================
+// PHASE 7
+// FINAL REVEAL
+// =========================
+
+async function startReveal() {
+
+    revealOkay.classList.add(
+        "hidden"
+    );
+
+    revealIntro.classList.add(
+        "hidden"
+    );
+
+    confessionBlock.classList.add(
+        "hidden"
+    );
+
+    revealMessage.classList.add(
+        "hidden"
+    );
+
+    revealEnding.classList.add(
+        "hidden"
+    );
+
+    revealFinalMarker.classList.add(
+        "hidden"
+    );
+
+
+    /*
+        Small pause after clicking
+        "Show cause".
+    */
+
+    await wait(900);
+
+
+    revealOkay.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(1600);
+
+
+    revealIntro.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(2600);
+
+
+    /*
+        Main confession.
+    */
+
+    confessionBlock.classList.remove(
+        "hidden"
+    );
+
+
+    /*
+        Only now do the hearts appear.
+    */
+
+    startHearts();
+
+
+    await wait(2600);
+
+
+    revealMessage.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(3300);
+
+
+    revealEnding.classList.remove(
+        "hidden"
+    );
+
+
+    await wait(2500);
+
+
+    revealFinalMarker.classList.remove(
+        "hidden"
+    );
+
+}
+
+
+// =========================
+// BUTTON EVENTS
+// =========================
+
+
+// Phase 1 → Phase 2
 
 runButton.addEventListener(
     "click",
@@ -825,9 +1040,7 @@ runButton.addEventListener(
 );
 
 
-// =========================
-// PHASE 2 → 3
-// =========================
+// Phase 2 → Phase 3
 
 continueButton.addEventListener(
     "click",
@@ -853,9 +1066,7 @@ continueButton.addEventListener(
 );
 
 
-// =========================
-// PHASE 3 → 4
-// =========================
+// Phase 3 → Phase 4
 
 gitNextButton.addEventListener(
     "click",
@@ -881,9 +1092,7 @@ gitNextButton.addEventListener(
 );
 
 
-// =========================
-// PHASE 4 → 5
-// =========================
+// Phase 4 → Phase 5
 
 databaseContinueButton.addEventListener(
     "click",
@@ -909,9 +1118,7 @@ databaseContinueButton.addEventListener(
 );
 
 
-// =========================
-// PHASE 5 → 6
-// =========================
+// Phase 5 → Phase 6
 
 evidenceContinueButton.addEventListener(
     "click",
@@ -937,9 +1144,7 @@ evidenceContinueButton.addEventListener(
 );
 
 
-// =========================
-// PHASE 6 → 7
-// =========================
+// Phase 6 → Phase 7
 
 showCauseButton.addEventListener(
     "click",
@@ -951,8 +1156,15 @@ showCauseButton.addEventListener(
 
         changeScreen(
             errorScreen,
-            revealPlaceholder
+            revealScreen
         );
 
+
+        setTimeout(() => {
+
+            startReveal();
+
+        }, 500);
+
     }
-);
+)
